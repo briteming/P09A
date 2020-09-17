@@ -2,13 +2,15 @@
 # 配置文件 参数指定 config.json中 CheckURL 为检测socks5时需要的某个网站地址
 # 启动 重启 run.sh
 # 定时重启 15 5 * * * /root/P09A/run.sh 2>&1 >/dev/null
+# 依赖 python3 python3-pip sqlite3 screen
 # 依赖 random requests json datetime time sqlite3
+#      pip3 install requests pysocks
 # 运行环境 python3 
 # 代码部署于服务器 
 Active Runtime No.30 Y 2020-9-17
 Active Runtime No.13 Y 2020-9-17
 Active Runtime No.51 Y 2020-9-17
-Active Runtime No.78 N
+Active Runtime No.78 Y 2020-9-17
 Active Runtime No.00 N 
 Active BACKUP  No.19 Y 2020-9-17
 # 目录结构

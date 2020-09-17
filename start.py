@@ -96,22 +96,26 @@ def rungogogo():
 #   逐一对当前IP 需要检测的端口 进行检测
     for aSeqPort in checkPorts:
         print("    + CHECK PORT: %d" % aSeqPort)
-#   检测socks5的状态
+#   检测socks5的状态 Y(入库) N(放弃) 
         vResponseStatus = checkSocks5Status(aURL = checkSocks5URL, aIP = aIP, aPort = aSeqPort, aUA = aUA, aTimeout = 6)
 
+        if vResponseStatus == 'Y':
+            print("    + STATUS YES.")
 #   时间的信息
-        vNow = get_now()
-        vNowTS = get_timestamp(vNow)
-        print("    + TIME FMT %s   TIMESTAMP %d" % (vNow,vNowTS))
+            vNow = get_now()
+            vNowTS = get_timestamp(vNow)
+            print("    + TIME FMT %s   TIMESTAMP %d" % (vNow,vNowTS))
 
-        iSQL = "insert into socks5 (ip, port) values('%s', %d) " % (aIP, aSeqPort)
-        uSQL = "update socks5 set itime = '%s', itimestamp = %d, status = '%s' where ip = '%s' and port = %d" % (vNow, vNowTS, vResponseStatus, aIP, aSeqPort)
-        print(iSQL)
-        print(uSQL)
+            iSQL = "insert into socks5 (ip, port) values('%s', %d) " % (aIP, aSeqPort)
+            uSQL = "update socks5 set itime = '%s', itimestamp = %d, status = '%s' where ip = '%s' and port = %d" % (vNow, vNowTS, vResponseStatus, aIP, aSeqPort)
+            print(iSQL)
+            print(uSQL)
 
 #   检测的结果数据 入库
-        run_SQL(aDB = v_database, aSQL = iSQL)
-        run_SQL(aDB = v_database, aSQL = uSQL)
+            run_SQL(aDB = v_database, aSQL = iSQL)
+            run_SQL(aDB = v_database, aSQL = uSQL)
+        else:
+            print("    + STATUS NO.")
     
 
 if __name__ == '__main__':
