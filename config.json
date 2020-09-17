@@ -1,0 +1,6 @@
+{
+  "CheckURL": "https://game-api-sp04.snailbattle.fun/v.data",
+  "CheckPorts": [1080,1081,1087,1089,8080,10808,38801],
+  "PORJECTNUMBER": "P09A"
+}
+
