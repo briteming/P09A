@@ -9,4 +9,5 @@
 # 依赖的包 random requests json datetime time sqlite3
 # pip3 install requests pysocks
 # 运行环境 Linux/Ubuntu python3
+# 博客地址 https://dasmz.com/?p=1091
 </pre>
